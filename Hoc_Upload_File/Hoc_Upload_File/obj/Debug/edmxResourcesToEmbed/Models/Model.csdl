@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLy_HinhAnhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Upload_File_HinhAnh">
+    <Key>
+      <PropertyRef Name="id_HinhAnh" />
+    </Key>
+    <Property Name="id_HinhAnh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="path_HinhAnh" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="QuanLy_HinhAnhEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Upload_File_HinhAnh" EntityType="Self.Upload_File_HinhAnh" />
+  </EntityContainer>
+</Schema>

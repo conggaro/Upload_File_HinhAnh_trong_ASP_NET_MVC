@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLy_HinhAnhModelStoreContainer" CdmEntityContainer="QuanLy_HinhAnhEntities">
+    <EntitySetMapping Name="Upload_File_HinhAnh">
+      <EntityTypeMapping TypeName="QuanLy_HinhAnhModel.Upload_File_HinhAnh">
+        <MappingFragment StoreEntitySet="Upload_File_HinhAnh">
+          <ScalarProperty Name="id_HinhAnh" ColumnName="id_HinhAnh" />
+          <ScalarProperty Name="path_HinhAnh" ColumnName="path_HinhAnh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

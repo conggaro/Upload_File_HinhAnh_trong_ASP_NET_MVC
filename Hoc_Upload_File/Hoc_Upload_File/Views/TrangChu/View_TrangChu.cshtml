@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "/Views/Shared/_LayoutPage_01.cshtml";
+}
+
+<link href="/DuLieuHTML/css/style_TrangChu.css" rel="stylesheet" />
+
+<h1>
+    @ViewBag.thong_bao
+</h1>
+
+<ul>
+    <li>
+        <a href="/TaiLen_HinhAnh/View_TaiLen_HinhAnh">Chuyển đến trang tải lên hình ảnh</a>
+    </li>
+</ul>
+
+@{
+    if (ViewBag.dem != 0)
+    {
+        foreach (var item in ViewBag.ds)
+        {
+            <img src="@item.path_HinhAnh" style="width: 100px"/>
+        }
+    }
+}

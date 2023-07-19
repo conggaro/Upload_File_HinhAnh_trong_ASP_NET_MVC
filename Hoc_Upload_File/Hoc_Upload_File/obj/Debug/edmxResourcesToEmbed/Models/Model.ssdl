@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLy_HinhAnhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Upload_File_HinhAnh">
+    <Key>
+      <PropertyRef Name="id_HinhAnh" />
+    </Key>
+    <Property Name="id_HinhAnh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="path_HinhAnh" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityContainer Name="QuanLy_HinhAnhModelStoreContainer">
+    <EntitySet Name="Upload_File_HinhAnh" EntityType="Self.Upload_File_HinhAnh" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

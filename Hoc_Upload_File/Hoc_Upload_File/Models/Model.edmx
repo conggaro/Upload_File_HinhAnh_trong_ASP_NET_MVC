@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuanLy_HinhAnhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Upload_File_HinhAnh">
+          <Key>
+            <PropertyRef Name="id_HinhAnh" />
+          </Key>
+          <Property Name="id_HinhAnh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="path_HinhAnh" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="QuanLy_HinhAnhModelStoreContainer">
+          <EntitySet Name="Upload_File_HinhAnh" EntityType="Self.Upload_File_HinhAnh" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLy_HinhAnhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Upload_File_HinhAnh">
+          <Key>
+            <PropertyRef Name="id_HinhAnh" />
+          </Key>
+          <Property Name="id_HinhAnh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="path_HinhAnh" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="QuanLy_HinhAnhEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Upload_File_HinhAnh" EntityType="Self.Upload_File_HinhAnh" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLy_HinhAnhModelStoreContainer" CdmEntityContainer="QuanLy_HinhAnhEntities">
+          <EntitySetMapping Name="Upload_File_HinhAnh">
+            <EntityTypeMapping TypeName="QuanLy_HinhAnhModel.Upload_File_HinhAnh">
+              <MappingFragment StoreEntitySet="Upload_File_HinhAnh">
+                <ScalarProperty Name="id_HinhAnh" ColumnName="id_HinhAnh" />
+                <ScalarProperty Name="path_HinhAnh" ColumnName="path_HinhAnh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = "/Views/Shared/_LayoutPage_01.cshtml";
+}
+
+<link href="/DuLieuHTML/css/style_UploadFile.css" rel="stylesheet"/>
+
+<h1>
+    @ViewBag.thong_bao
+</h1>
+
+@*
+    multipart/form-data : đại diện cho Multipart form
+    kiểu mã hóa này được sử dụng
+    khi người dùng muốn tải tệp dữ liệu lên
+*@
+
+<form action="/TaiLen_HinhAnh/XuLy_TaiLen_HinhAnh" enctype="multipart/form-data" method="post">
+    <label for="input_Upload" >Chọn hình ảnh</label>
+    
+    <input type="file" name="file_HinhAnh" id="input_Upload"/>
+
+    <p class="thong_bao">
+        @ViewBag.thong_bao_TrangThai_HinhAnh
+    </p>
+
+    <button>Tải lên hình ảnh</button>
+</form>
