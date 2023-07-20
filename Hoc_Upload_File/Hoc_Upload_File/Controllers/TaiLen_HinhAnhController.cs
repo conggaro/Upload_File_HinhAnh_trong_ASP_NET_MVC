@@ -1,6 +1,7 @@
 ﻿using Hoc_Upload_File.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -92,16 +93,34 @@ namespace Hoc_Upload_File.Controllers
             string URL_TuyetDoi = Server.MapPath(URL_TuongDoi);
 
 
-            // lưu file (chưa kiểm tra trùng file)
-            file_HinhAnh.SaveAs(URL_TuyetDoi + file_HinhAnh.FileName);
+            // kiểm tra trùng tên file
+            // => đổi tên file = tên file cũ (không kèm đuôi) + "-" + số + đuôi
+            // ví dụ:
+            // anh.jpg => anh + "-" + 1 + ".jpg" => anh-1.jpg
+            // 1. tách tên và đuôi
+            // 2. sử dụng biến i để chạy và cộng vào tên file mới
+            // 3. kiểm tra lại
+            string full_DuongDan = URL_TuyetDoi + file_HinhAnh.FileName;
+            int i = 1;
+            while (System.IO.File.Exists(full_DuongDan) == true)
+            {
+                string ten = Path.GetFileNameWithoutExtension(file_HinhAnh.FileName);
+                string duoi = Path.GetExtension(file_HinhAnh.FileName);
 
+                full_DuongDan = URL_TuyetDoi + ten + "-"+ i + duoi;
+                i++;
+            }
+
+            // kiểm tra xong
+            // thì lưu file
+            file_HinhAnh.SaveAs(full_DuongDan);
 
             // chúng ta cần tạo đối tượng db
             QuanLy_HinhAnhEntities db = new QuanLy_HinhAnhEntities();
 
             // tạo biến URL_HinhAnh_db
             // để lưu chuỗi string đường dẫn vào trong CƠ SỞ DỮ LIỆU
-            string URL_HinhAnh_db = URL_TuongDoi + file_HinhAnh.FileName;
+            string URL_HinhAnh_db = URL_TuongDoi + Path.GetFileName(full_DuongDan);
 
             // tạo đối tượng
             // tử cái bảng Upload_File_HinhAnh

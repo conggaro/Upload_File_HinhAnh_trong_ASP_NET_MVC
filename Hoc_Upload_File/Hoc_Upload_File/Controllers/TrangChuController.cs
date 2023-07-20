@@ -21,19 +21,10 @@ namespace Hoc_Upload_File.Controllers
             // tạo đối tượng db
             QuanLy_HinhAnhEntities db = new QuanLy_HinhAnhEntities();
 
-            // tạo đối tượng query
-            var dt_query = from item in db.Upload_File_HinhAnh
-                           select item;
+            // tạo đối tượng ds
+            List<Upload_File_HinhAnh> ds = db.Upload_File_HinhAnh.ToList();
 
-            List<Upload_File_HinhAnh> ds = dt_query.ToList();
-
-            // tạo ViewBag để đưa dữ liệu đến View
-            ViewBag.ds = ds;
-
-            // tạo ViewBag đếm
-            ViewBag.dem = ds.Count();
-
-            return View();
+            return View(ds);
         }
     }
 }
